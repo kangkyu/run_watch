@@ -1,0 +1,25 @@
+body {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+#container {
+  width: 80%;
+  margin: 0 auto;
+  border: solid 1px black;
+  padding: 20px 40px;
+  margin-top: 20px;
+}
+
+.traverse {
+  margin-top: 20px;
+  color: #0000FF;
+}
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+.race {
+  padding: 2px 4px;
+}
