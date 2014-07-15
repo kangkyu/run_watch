@@ -1,3 +1,3 @@
 class Task < ActiveRecord::Base
-  validates :episode, presence: true, uniqueness: true
+  validates :date, presence: true
 end

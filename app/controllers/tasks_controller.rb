@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(completed: true).order('episode')
-    @un_tasks = Task.where(completed: false).order('episode')
+    @tasks = Task.order('date')
+    @do_tasks = Task.where(completed: true).order('date')
+    @un_tasks = Task.where(completed: false).order('date')
   end
 
   def new
