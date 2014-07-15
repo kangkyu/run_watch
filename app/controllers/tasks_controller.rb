@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.order('episode')
+    @tasks = Task.where(completed: true).order('episode')
+    @un_tasks = Task.where(completed: false).order('episode')
   end
 
   def new
@@ -27,6 +28,13 @@ class TasksController < ApplicationController
     else
       render 'edit', notice: 'please try again different'
     end
+  end
+
+  def complete
+    # Task.where(id: params[:task_ids]).update_all(completed: true)
+    @task = Task.find(params[:id])
+    @task.update(completed: params[:button])
+    redirect_to tasks_path
   end
 
   private

@@ -4,11 +4,11 @@ module ApplicationHelper
     d.strftime("%F") if d
   end
 
-  def status(s)
+  def task_status(s)
     if s
-     'completed' 
+     'w' 
     else
-     'incomplete'
+     'o'
     end 
   end
   
