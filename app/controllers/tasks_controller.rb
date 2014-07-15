@@ -3,8 +3,8 @@ class TasksController < ApplicationController
     params[:page] ||= session[:page]
     @tasks = Task.order('date').page(params[:page]).per_page(27)
     session[:page] = params[:page]
-    # @do_tasks = Task.where(completed: true).order('date')
-    # @un_tasks = Task.where(completed: false).order('date')
+    @do_tasks = Task.where(completed: true).order('date')
+    @un_tasks = Task.where(completed: false).order('date')
   end
 
   def new
