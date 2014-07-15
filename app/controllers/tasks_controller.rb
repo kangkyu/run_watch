@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
   def index
+    params[:page] ||= session[:page]
     @tasks = Task.order('date').page(params[:page]).per_page(27)
-    @do_tasks = Task.where(completed: true).order('date')
-    @un_tasks = Task.where(completed: false).order('date')
+    session[:page] = params[:page]
+    # @do_tasks = Task.where(completed: true).order('date')
+    # @un_tasks = Task.where(completed: false).order('date')
   end
 
   def new
@@ -25,7 +27,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to tasks_path
+      redirect_to @tasks
     else
       render 'edit', notice: 'please try again different'
     end
