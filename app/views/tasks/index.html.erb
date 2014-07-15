@@ -1,17 +1,4 @@
 <h1>Tasks Index</h1>
-
-<%= will_paginate @tasks %>
-<!-- 
-
-<h2>Unwatched</h2>
-<%= "no more left for now" unless @un_tasks.any? %>
-<%= render @un_tasks %>
-
-<h2>Watched</h2>
-<%= "nothing completed yet" unless @do_tasks.any? %>
-<%= render @do_tasks %>   
-
- -->
-<h2>All</h2>
+<%= will_paginate @tasks, :page_links => false, class: 'apple_pagination' %>
+<br>
 <%= render @tasks %>
-
