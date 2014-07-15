@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.order('date')
+    @tasks = Task.order('date').page(params[:page])
     @do_tasks = Task.where(completed: true).order('date')
     @un_tasks = Task.where(completed: false).order('date')
   end

@@ -1,5 +1,8 @@
 <h1>Tasks Index</h1>
 
+<%= will_paginate @tasks %>
+<!-- 
+
 <h2>Unwatched</h2>
 <%= "no more left for now" unless @un_tasks.any? %>
 <%= render @un_tasks %>
@@ -8,9 +11,7 @@
 <%= "nothing completed yet" unless @do_tasks.any? %>
 <%= render @do_tasks %>   
 
-<!--
-
+ -->
 <h2>All</h2>
 <%= render @tasks %>
 
--->
