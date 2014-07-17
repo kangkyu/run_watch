@@ -14,10 +14,10 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :tasks, except: :show do
+  resources :tasks, except: [:show, :destroy] do
     put 'complete', on: :member
   end
-
+  resources :users, except: :destroy
   # Example resource route with options:
   #   resources :products do
   #     member do
