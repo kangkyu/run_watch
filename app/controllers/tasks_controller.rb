@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :current_user
+
   def index
     params[:page] ||= session[:page]
     @tasks = Task.order('date').page(params[:page]).per_page(27)
     session[:page] = params[:page]
-    @do_tasks = Task.where(completed: true).order('date')
-    @un_tasks = Task.where(completed: false).order('date')
+
   end
 
   def new
@@ -36,13 +37,19 @@ class TasksController < ApplicationController
   def complete
     # Task.where(id: params[:task_ids]).update_all(completed: true)
     @task = Task.find(params[:id])
-    @task.update(completed: params[:button])
+    status = Status.find_by(task_id: @task.id, user_id: @user.id) 
+    status.completed = params[:button]
+    status.save
     redirect_to tasks_path
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:episode, :date, :title, :completed)
+    params.require(:task).permit(:episode, :date, :title)
+  end
+
+  def current_user
+    @user = User.first
   end
 end

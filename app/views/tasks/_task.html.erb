@@ -1,10 +1,11 @@
+<% status = Status.find_by(task_id: task.id, user_id: @user.id) %>
 <div class="race">
   <%= form_tag complete_task_path(task), method: :put, class: "buttons" do %>
     <%= link_to show_date(task.date), edit_task_path(task) %> | 
     <%= "Episode #{task.episode}" %> | 
     <%= task.title %> | 
-    <%= task_status(task.completed) %>
-    <% if task.completed %>
+    <%= task_status(status.completed) %>
+    <% if status.completed %>
       <%= button_tag "undo", value: false %>
     <% else %>
       <%= button_tag "watch", value: true %>

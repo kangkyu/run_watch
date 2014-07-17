@@ -5,10 +5,3 @@
 <br>
 <%= render @tasks %>
 
-<h2>Unwatched</h2>
-<%= "no more unwatched episodes" unless @un_tasks.any? %>
-<%= render @un_tasks %>
-
-<h2>Watched</h2>
-<%= "no episodes watched yet" unless @do_tasks.any? %>
-<%= render @do_tasks %>
