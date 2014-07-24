@@ -1,0 +1,13 @@
+.race
+  = form_tag complete_task_path(task), method: :put do
+    = link_to show_date(task.date), edit_task_path(task) 
+    - if task.title == "cancel"
+      %strong
+        no broadcasting on date
+    - else
+      = task_status(task.completed)
+      - if task.completed
+        = button_tag "undo", value: false, class: "buttons"
+      - else
+        = button_tag "watch", value: true, class: "buttons"
+      #{task.title} : #{task.episode + 132} : Episode #{task.episode}
