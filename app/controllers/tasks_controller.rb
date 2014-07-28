@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
   def index
     params[:page] ||= session[:page]
-    @tasks = Task.order('date').page(params[:page]).per_page(24)
+    @tasks = Task.task_listing.page(params[:page]).per_page(24)
     session[:page] = params[:page]
 
-    @do_tasks = Task.where(completed: true).order('date')
-    @un_tasks = Task.where(completed: false).order('date')
+    @do_tasks = Task.do_listing.page(params[:page]).per_page(12)
+    @un_tasks = Task.un_listing.page(params[:page]).per_page(12)
   end
 
   def new
