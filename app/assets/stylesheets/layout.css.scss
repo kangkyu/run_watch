@@ -21,9 +21,12 @@ form .field, form .actions {
 }
 
 form .buttons {
-  
+  width: 100px;
+  height: 100%;
+
 }
 
 .race {
   padding: 2px 4px;
+  /*line-height: 100%;*/
 }
