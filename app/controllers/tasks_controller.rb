@@ -6,8 +6,8 @@ class TasksController < ApplicationController
     @tasks = Task.task_listing.page(params[:page]).per_page(24)
     session[:page] = params[:page]
 
-    @do_tasks = Task.do_listing.page(params[:page]).per_page(12)
-    @un_tasks = Task.un_listing.page(params[:page]).per_page(12)
+    # @do_tasks = Task.do_listing.page(params[:page]).per_page(12)
+    # @un_tasks = Task.un_listing.page(params[:page]).per_page(12)
   end
 
   def new
