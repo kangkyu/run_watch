@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :current_user
 
   def index
     params[:page] ||= session[:page]
@@ -39,7 +38,7 @@ class TasksController < ApplicationController
   def complete
     # Task.where(id: params[:task_ids]).update_all(completed: true)
     @task = Task.find(params[:id])
-    status = Status.find_by(task_id: @task.id, user_id: @user.id) 
+    status = Status.find_by(task_id: @task.id, user_id: current_user.id) 
     status.completed = params[:button]
     status.save
     redirect_to tasks_path
@@ -49,9 +48,5 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:episode, :date, :title)
-  end
-
-  def current_user
-    @user = User.first
   end
 end

@@ -1,5 +1,3 @@
-- status = Status.find_by(task_id: task.id, user_id: @user.id)
-
 .race
   = form_tag complete_task_path(task), method: :put do
     = link_to show_date(task.date), edit_task_path(task) 
@@ -7,8 +5,12 @@
       %strong
         no broadcasting on date
     - else
-      = task_status(status.completed)
-      - if status.completed
+      - if task_status(task.id, current_user.id)
+        = "w"
+      - else
+        = "o"
+
+      - if task_status(task.id, current_user.id)
         = button_tag "undo", value: false, class: "buttons"
       - else
         = button_tag "watch", value: true, class: "buttons"

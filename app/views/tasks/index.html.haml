@@ -1,7 +1,7 @@
 %h1 Tasks Index
 %h3 
   Username: 
-  = @user.username
+  = current_user.username
 / %h2 Watched
 / - unless @do_tasks.any?
 /   = "no episodes watched yet"

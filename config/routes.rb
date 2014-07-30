@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     put 'complete', on: :member
   end
   resources :users, except: :destroy
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :users
+  resources :sessions
   # Example resource route with options:
   #   resources :products do
   #     member do
