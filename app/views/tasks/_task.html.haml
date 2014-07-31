@@ -5,13 +5,10 @@
       %strong
         no broadcasting on date
     - else
-      - if task_status(task.id, current_user.id)
-        = "w"
-      - else
-        = "o"
-
-      - if task_status(task.id, current_user.id)
-        = button_tag "undo", value: false, class: "buttons"
-      - else
-        = button_tag "watch", value: true, class: "buttons"
-      #{task.title} : #{task.episode + 132} : Episode #{task.episode}
+      - if current_user
+        = task_status(task.id, current_user.id) ? "w" : "o"
+        - if task_status(task.id, current_user.id)
+          = button_tag "undo", value: false, class: "buttons"
+        - else
+          = button_tag "watch", value: true, class: "buttons"
+      #{task.title} : Episode #{task.episode} : Show #{task.episode + 132} 
