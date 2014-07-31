@@ -21,7 +21,7 @@ end
 def date_casts(episode_range, start_date)
   start = DateTime.parse(start_date)
   episode_range.each_with_index do |num, i|
-    Task.find_by_date(DateTime.parse((start + i*7).to_s)).update(episode: num, completed: false)
+    Task.find_by_date(DateTime.parse((start + i*7).to_s)).update(episode: num)
   end
 end
 

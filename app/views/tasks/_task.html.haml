@@ -6,9 +6,10 @@
         no broadcasting on date
     - else
       - if current_user
-        = task_status(task.id, current_user.id) ? "w" : "o"
-        - if task_status(task.id, current_user.id)
+        - if task.statuses.find_by(user_id: current_user.id).completed
+          w
           = button_tag "undo", value: false, class: "buttons"
         - else
+          o
           = button_tag "watch", value: true, class: "buttons"
       #{task.title} : Episode #{task.episode} : Show #{task.episode + 132} 
