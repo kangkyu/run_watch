@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
   has_many :users, through: :statuses
   
   validates :date, presence: true
+  validates :episode, presence: true
 
   # def self.do_listing
   #   where(completed: true).order('date')

@@ -10,7 +10,11 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    if current_user
+      @task = Task.new
+    else
+      redirect_to login_path
+    end
   end
 
   def create
@@ -23,7 +27,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    if current_user
+      @task = Task.find(params[:id])
+    else
+      redirect_to login_path
+    end
   end
 
   def update
