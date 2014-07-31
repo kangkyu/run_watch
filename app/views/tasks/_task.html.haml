@@ -1,6 +1,7 @@
 .race
   = form_tag complete_task_path(task), method: :put do
     - if task.title == "cancel"
+      #{show_date(task.date)} :
       %strong
         no broadcasting on date
     - else
@@ -14,8 +15,7 @@
           o
           = button_tag "watch", value: true, class: "buttons"
       - else
-        = show_date(task.date)
-  
-      = ": Episode #{task.episode} : #{task.episode + 132}"
+        #{show_date(task.date)} :
+      Episode #{task.episode} / #{task.episode + 132}
       - if task.title
         = link_to task.title, "https://www.youtube.com/results?search_query=런닝맨 #{task.title}&filters=playlist"
