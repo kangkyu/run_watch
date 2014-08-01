@@ -1,19 +1,39 @@
 body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  color: #000;
+  background-color: #FFF;
 }
 
 #container {
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   border: solid 1px black;
-  padding: 20px 40px;
+  padding: 5% 10%;
   margin-top: 20px;
 }
 
 .traverse {
   margin-top: 20px;
   color: #0000FF;
+}
+
+h1 {
+  font-size: 2.00em;
+}
+
+h2 {
+  font-size: 1.50em;
+}
+
+h3 {
+  font-size: 1.00em;
+}
+
+a,
+a:visited {
+  color: #0000FF;
+  text-decoration: none;
 }
 
 form .field, form .actions {
@@ -29,4 +49,33 @@ form .buttons {
 .race {
   padding: 2px 4px;
   /*line-height: 100%;*/
+}
+
+@media screen and (min-width: 480px) {
+  h1 {
+    font-size: 2.25em;
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  } 
+}
+
+@media screen and (min-width: 660px) {
+  h1 {
+    font-size: 2.50em;
+  }
+
+  h2 {
+    font-size: 2.00em;
+  }
+
+  h3 {
+    font-size: 1.50em;
+  }
+
 }
