@@ -1,6 +1,8 @@
 .traverse
   = link_to 'Tasks Index', tasks_path
-  - if current_user  
+  - if current_user    
+    |
+    = link_to 'Uncompleted', uncompleted_tasks_path
     |
     = link_to 'Task New', new_task_path
     |

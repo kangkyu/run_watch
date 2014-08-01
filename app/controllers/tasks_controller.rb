@@ -1,12 +1,15 @@
 class TasksController < ApplicationController
 
   def index
-    params[:page] ||= session[:page]
-    @tasks = Task.task_listing.page(params[:page]).per_page(24)
-    session[:page] = params[:page]
+    @tasks = Task.order('date').page(params[:page]).per_page(24)
+  end
 
-    # @do_tasks = Task.do_listing.page(params[:page]).per_page(12)
-    # @un_tasks = Task.un_listing.page(params[:page]).per_page(12)
+  def uncompleted
+    task_ids = []
+    current_user.statuses.where(completed: false).each do |status|
+      task_ids << status.task_id
+    end 
+    @tasks = Task.where(id: task_ids).order('date').page(params[:page]).per_page(12)
   end
 
   def new
@@ -49,7 +52,7 @@ class TasksController < ApplicationController
     status = @task.statuses.find_by(user_id: current_user.id) 
     status.completed = params[:button]
     status.save
-    redirect_to tasks_path
+    redirect_to :back
   end
 
   private

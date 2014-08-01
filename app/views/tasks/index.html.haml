@@ -1,28 +1,15 @@
-%h1 Tasks Index
 %h3 
   - if current_user
     Username: 
     = current_user.username
-/ %h2 Watched
-/ - unless @do_tasks.any?
-/   = "no episodes watched yet"
-/ - else
-/   / = render 'pagelinks', tasks: @do_tasks
-/   = render @do_tasks
 
-/ %h2 Unwatched
-/ - unless @un_tasks.any?
-/   = "no more unwatched episodes" 
-/ - else
-/   = render 'pagelinks', tasks: @un_tasks
-/   = render @un_tasks
-
-/ %h2 All
-/ = will_paginate @tasks, :page_links => true, class: 'apple_pagination'
-/ %br
-/ = render @tasks
+%h2 All Tasks
 - unless @tasks.any?
   = "no episodes on this list" 
 - else
   = render 'pagelinks', tasks: @tasks
   = render @tasks
+  
+/ = will_paginate @tasks, :page_links => true, class: 'apple_pagination'
+/ %br
+/ = render @tasks
