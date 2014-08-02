@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       Task.all.each_with_index do |task, i|
         if task.title != 'cancel'
-          Status.create(user_id: @user.id, task_id: i+1, completed: false)
+          Status.create(user_id: @user.id, task_id: task.id, completed: false)
         end
       end
       session[:user_id] = @user.id 
