@@ -9,7 +9,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id 
       Task.all.each_with_index do |task, i|
-        Status.create(user_id: @user.id, task_id: i+1, completed: false)
+        if task.title != 'cancel'
+          Status.create(user_id: @user.id, task_id: i+1, completed: false)
+        end
       end
       redirect_to root_url, notice: "Thank you for signing up"
     else
