@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         end
       end
       session[:user_id] = @user.id 
-      redirect_to root_url, notice: "Thank you for signing up"
+      redirect_to tasks_url, notice: "Thank you for signing up"
     else
       render "new"
     end

@@ -26,7 +26,7 @@ class TasksController < ApplicationController
       User.all.each_with_index do |user, i|
         Status.create(task_id: @task.id, user_id: i+1, completed: false)
       end
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render 'new', notice: 'please try again different'
     end
