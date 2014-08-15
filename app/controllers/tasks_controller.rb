@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.order('date').page(params[:page]).per_page(24)
+    @tasks = Task.order('date').page(params[:page]).per_page(16)
   end
 
   def uncompleted

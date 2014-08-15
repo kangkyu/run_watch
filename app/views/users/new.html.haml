@@ -1,4 +1,4 @@
-%h1 Sign up
+%h2 Sign up
 
 = form_for @user do |f|
   .field
@@ -11,5 +11,5 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation
   .actions
-    = f.submit
+    = f.submit 'Signup', class: 'buttons'
     

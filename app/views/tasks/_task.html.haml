@@ -1,21 +1,20 @@
 .race
   = form_tag complete_task_path(task), method: :put do
-    - if task.title == "cancel"
-      #{show_date(task.date)} :
-      %strong
-        no broadcasting on date
+    - if current_user
+      = link_to show_date(task.date), edit_task_path(task)
     - else
+      #{show_date(task.date)} :
 
+    - if task.title == "cancel"
+      %strong cancelled
+    - else
+      Ep #{task.episode} / #{task.episode + 132}
       - if current_user
-        = link_to show_date(task.date), edit_task_path(task)
         - if task.statuses.find_by(user_id: current_user.id).completed
-          w
-          = button_tag "undo", value: false, class: "buttons"
+          = button_tag "w", value: false, class: "buttons"
         - else
-          o
-          = button_tag "watch", value: true, class: "buttons"
-      - else
-        #{show_date(task.date)} :
-      Episode #{task.episode} / #{task.episode + 132}
+          = button_tag "check", value: true, class: "buttons"
       - if task.title
         = link_to task.title, "https://www.youtube.com/results?search_query=런닝맨 #{task.title}&filters=playlist"
+
+

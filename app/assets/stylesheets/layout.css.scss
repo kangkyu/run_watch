@@ -1,21 +1,32 @@
+$blue: #4479BA;
+
 body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   color: #000;
-  background-color: #FFF;
+  background-color: $blue;
+  padding: 10px 15px;
 }
 
-#container {
-  max-width: 80%;
-  margin: 0 auto;
-  border: solid 1px black;
-  padding: 5% 10%;
-  margin-top: 20px;
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+form .buttons {
+  width: 60px;
+  height: 100%;
+  background-color: $blue;
+  border: solid 1px #2A4E77;
+  color: #FFF; 
+}
+
+.race {
+  padding: 2px 4px;
+  /*line-height: 100%;*/
 }
 
 .traverse {
   margin-top: 20px;
-  color: #0000FF;
 }
 
 h1 {
@@ -32,23 +43,17 @@ h3 {
 
 a,
 a:visited {
-  color: #0000FF;
+  color: $blue;
   text-decoration: none;
 }
 
-form .field, form .actions {
-  margin: 12px 0;
-}
-
-form .buttons {
-  width: 100px;
-  height: 100%;
-
-}
-
-.race {
-  padding: 2px 4px;
-  /*line-height: 100%;*/
+#container {
+  max-width: 80%;
+  margin: 0 auto;
+  border: solid 1px black;
+  padding: 5% 10%;
+  margin-top: 20px;
+  background-color: #FFF;
 }
 
 @media screen and (min-width: 480px) {

@@ -1,9 +1,4 @@
-%h3 
-  - if current_user
-    Username: 
-    = current_user.username
-
-%h2 All Tasks
+%h2 All Episodes
 - unless @tasks.any?
   = "no episodes on this list" 
 - else
