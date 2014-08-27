@@ -4,13 +4,13 @@
   /   = f.text_field :id
   .field
     = f.label 'episode'
-    = f.text_field :episode
+    = f.number_field :episode
   .field
     = f.label 'date'
-    = f.text_field :date
+    = f.date_field :date, autofocus: true
   .field
     = f.label 'searchword'
-    = f.text_field :title, autofocus: true
+    = f.text_field :title
   / .field
   /   = f.check_box :completed
   /   = f.label :completed, 'watched'

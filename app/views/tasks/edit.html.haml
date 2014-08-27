@@ -1,2 +1,20 @@
 %h2 Edit the Searchword
-= render 'form'
+
+= form_for @task do |f|
+  / .field
+  /   = f.label 'id'
+  /   = f.text_field :id
+  .field
+    = f.label 'episode'
+    = f.number_field :episode, readonly: true
+  .field
+    = f.label 'date'
+    = f.date_field :date, readonly: true
+  .field
+    = f.label 'searchword'
+    = f.text_field :title, autofocus: true
+  / .field
+  /   = f.check_box :completed
+  /   = f.label :completed, 'watched'
+  .actions
+    = f.submit nil, class: 'buttons'

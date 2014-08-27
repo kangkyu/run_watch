@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       User.all.each_with_index do |user, i|
-        Status.create(task_id: @task.id, user_id: i+1, completed: false)
+        Status.create(task_id: @task.id, user_id: user.id, completed: false)
       end
       redirect_to tasks_path
     else
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to tasks_path
+      redirect_to tasks_path(page: (params[:id].to_i/16 + 1))
     else
       render 'edit', notice: 'please try again different'
     end
