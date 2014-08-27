@@ -1,4 +1,7 @@
-%h2 All Episodes
+%h2 
+  All Episodes
+  %small
+    = link_to "(wikipedia)", "http://ko.wikipedia.org/wiki/%EB%9F%B0%EB%8B%9D%EB%A7%A8%EC%9D%98_%EB%B0%A9%EC%98%81_%EB%AA%A9%EB%A1%9D", target: "_blank"
 - unless @tasks.any?
   = "no episodes on this list" 
 - else
