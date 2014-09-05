@@ -9,4 +9,6 @@
   %body
     #container
       = render 'tasks/traverse'
+      - flash.each do |name, msg|
+        %p= msg
       = yield

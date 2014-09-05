@@ -23,6 +23,7 @@ class TasksController < ApplicationController
       User.all.each_with_index do |user, i|
         Status.create(task_id: @task.id, user_id: user.id, completed: false)
       end
+      flash[:notice] = "The task was created."
       redirect_to tasks_path
     else
       render 'new', notice: 'please try again different'
@@ -36,6 +37,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
+      flash[:notice] = "This task was updated."
       redirect_to tasks_path(page: (params[:id].to_i/16 + 1))
     else
       render 'edit', notice: 'please try again different'

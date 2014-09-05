@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to tasks_url, notice: "Logged in"
     else
       flash.now.alert = "Id or Password invalid"
-      render "new"      
+      render "new"
     end
   end
 
