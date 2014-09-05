@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :require_user, except: :index
 
   def index
     @tasks = Task.order('date').page(params[:page]).per_page(16)
@@ -13,11 +14,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    if current_user
-      @task = Task.new
-    else
-      redirect_to login_path
-    end
+    @task = Task.new
   end
 
   def create
@@ -33,11 +30,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    if current_user
-      @task = Task.find(params[:id])
-    else
-      redirect_to login_path
-    end
+    @task = Task.find(params[:id])
   end
 
   def update
