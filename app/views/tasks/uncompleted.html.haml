@@ -1,4 +1,5 @@
-%h2 Unwatched #{@tasks.count}
+.center-text
+  %h2 Unwatched #{@tasks.count}
 
 - unless @tasks.any?
   = "no more unwatched episodes" 
