@@ -47,4 +47,4 @@ group :production do
   gem 'pg'
 end
 
-ruby "2.1.6"
+ruby "2.1.7"
