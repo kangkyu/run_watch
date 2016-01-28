@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.14.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -39,7 +39,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'will_paginate', '~> 3.0.7' 
+gem 'will_paginate', '~> 3.1.0'
 gem 'bcrypt'
 
 group :production do
@@ -47,4 +47,4 @@ group :production do
   gem 'pg'
 end
 
-ruby "2.1.7"
+ruby "2.1.8"
