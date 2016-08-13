@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     task_ids = []
     current_user.statuses.where(completed: false).each do |status|
       task_ids << status.task_id
-    end 
+    end
     @tasks = Task.where(id: task_ids).order('date').page(params[:page]).per_page(12)
   end
 
@@ -47,10 +47,13 @@ class TasksController < ApplicationController
   def complete
     # Task.where(id: params[:task_ids]).update_all(completed: true)
     @task = Task.find(params[:id])
-    status = @task.statuses.find_by(user_id: current_user.id) 
+    status = @task.statuses.find_by(user_id: current_user.id)
     status.completed = params[:button]
     status.save
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   private

@@ -15,9 +15,8 @@
 
 ---
 
-when watch the show, sometimes binge watch, sometimes just one episode, stay on top of it
-and anytime you can tell, right away, these are episodes I didn't watch yet!
+when watch the show, sometimes binge watch, sometimes just one episode, stay on top of it and anytime you can tell, right away, these are episodes I didn't watch yet!
 
-And possibly, by help of your own writing about each episode (note or short summary) you
-can remember more clearly if you watch it or not!
+And possibly, by help of your own writing about each episode (note or short summary) you can remember more clearly if you watch it or not!
 
+It's a todo list, but you don't create other todos on the list, you don't delete todos after finished, keep them with summary to help your memory.
