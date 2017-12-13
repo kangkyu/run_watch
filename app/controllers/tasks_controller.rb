@@ -50,10 +50,8 @@ class TasksController < ApplicationController
     status = @task.statuses.find_by(user_id: current_user.id)
     status.completed = params[:button]
     status.save
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
-    end
+
+    redirect_to :back
   end
 
   private

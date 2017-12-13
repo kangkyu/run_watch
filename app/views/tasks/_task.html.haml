@@ -1,5 +1,5 @@
 .race
-  = form_tag complete_task_path(task), method: :put, remote: true do
+  = form_tag complete_task_path(task), method: :put do
     - if current_user
       = link_to show_date(task.date), edit_task_path(task)
     - else
