@@ -1,7 +1,7 @@
 %h2 Unwatched #{@tasks.count}
 
 - unless @tasks.any?
-  = "no more unwatched episodes" 
+  = "no more unwatched episodes"
 - else
   = render 'pagelinks', tasks: @tasks
   = render @tasks
