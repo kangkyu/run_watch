@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.5.8'
+ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', git: 'https://github.com/rails/rails.git'
 gem 'rails', '~> 5.2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+
+# If you are running Rails 5.x, specify a corresponding 5.x release in the Gemfile. For example, if you are using Rails 5.2 you will specify:
+# gem "minitest-rails", "~> 5.2.0"
+# Or, if you prefer to run the previous release for Rails 5.x, specify a 3.x release in the Gemfile:
+gem "minitest-rails", "~> 3.0"
+
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1'
 gem 'haml-rails', '~> 2.0'
