@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.5'
+ruby '2.4.9'
 
 # Bundle edge Rails instead: gem 'rails', git: 'https://github.com/rails/rails.git'
 gem 'rails', '4.2.11.1'
@@ -26,8 +26,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
+end
+
+group :development, :test do
   gem 'sqlite3', '~> 1.3.0'
 end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
