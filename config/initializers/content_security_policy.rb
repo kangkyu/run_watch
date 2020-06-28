@@ -9,7 +9,11 @@
 #   policy.font_src    :self, :https, :data
 #   policy.img_src     :self, :https, :data
 #   policy.object_src  :none
-#   policy.script_src  :self, :https
+#   if Rails.env.development?
+#     policy.script_src :self, :https, :unsafe_eval
+#   else
+#     policy.script_src :self, :https
+#   end
 #   policy.style_src   :self, :https
 
 #   # Specify URI for violation reports
