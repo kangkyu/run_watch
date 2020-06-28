@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', git: 'https://github.com/rails/rails.git'
-gem 'rails', '~> 5.1.0'
-
+gem 'rails', '~> 5.2.0'
+# Use Puma as the app server
+# gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1'
 gem 'haml-rails', '~> 2.0'
@@ -26,6 +27,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
+
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :development, :test do
@@ -43,6 +47,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'will_paginate', '~> 3.1.0'
 
