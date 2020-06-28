@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', git: 'https://github.com/rails/rails.git'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.0'
 
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1'
-gem 'haml-rails', '~> 1.0'
+gem 'haml-rails', '~> 2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -48,5 +48,5 @@ gem 'will_paginate', '~> 3.1.0'
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg', '~> 0.15'
+  gem 'pg', '>= 0.18', '< 2.0'
 end
