@@ -1,8 +1,8 @@
 %p
   - if tasks.previous_page
-    = link_to "< Previous", params.merge(page: tasks.previous_page)
+    = link_to "< Previous", params.permit(:task).merge(page: tasks.previous_page)
 
   Page #{tasks.current_page} of #{tasks.total_pages}
 
   - if tasks.next_page
-    = link_to "Next >", params.merge(page: tasks.next_page)
+    = link_to "Next >", params.permit(:task).merge(page: tasks.next_page)
