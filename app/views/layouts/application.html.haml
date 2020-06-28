@@ -4,9 +4,15 @@
     %title RunWatch
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_pack_tag 'hello_vue'
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
   %body
+    #container
+      %div{:id => 'hello'}
+        {{message}}
+        %app
+
     #container
       = render 'tasks/traverse'
       - flash.each do |name, msg|
