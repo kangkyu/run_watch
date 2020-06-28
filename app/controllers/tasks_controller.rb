@@ -51,7 +51,7 @@ class TasksController < ApplicationController
     status.completed = params[:button]
     status.save
 
-    redirect_to :back
+    redirect_back fallback_location: tasks_url
   end
 
   private
