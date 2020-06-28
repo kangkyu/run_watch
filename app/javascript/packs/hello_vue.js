@@ -11,9 +11,7 @@
 // document.addEventListener('DOMContentLoaded', () => {
 //   const app = new Vue({
 //     render: h => h(App)
-//   }).$mount()
-
-//   console.log(app)
+//   }).$mount('#hello')
 // })
 
 
@@ -32,7 +30,16 @@
 
 
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
+
+import moment from 'moment'
+Vue.filter('date', function(value) {
+  if (value) {
+    return moment(String(value)).format('YYYY-MM-DD')
+  }
+})
+
+import App from '../src/app.vue'
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

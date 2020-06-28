@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
+  namespace :api, defaults: {format: :json} do
+    resources :tasks
+  end
   # Example resource route with options:
   #   resources :products do
   #     member do

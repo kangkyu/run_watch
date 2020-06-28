@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <Tasks/>
   </div>
 </template>
 
 <script>
+import Tasks from '@/components/Tasks'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  components: {
+    Tasks
   }
 }
 </script>
