@@ -32,6 +32,7 @@ group :development do
 
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
 end
 
 group :development, :test do
@@ -54,6 +55,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'will_paginate', '~> 3.1.0'
+gem 'blueprinter'
 
 group :production do
   gem 'rails_12factor'

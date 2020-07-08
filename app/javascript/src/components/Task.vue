@@ -1,8 +1,13 @@
 <template>
   <div class="race">
     {{task.date | date}}
-    Ep {{task.episode}}
-    <a class="buttons">{{'check'}}</a>
+    <template v-if="task.title === 'cancel'">
+      <strong>cancelled</strong>
+    </template>
+    <template v-else>
+      {{'Ep ' + task.episode}}
+      <button class="buttons">{{task.completed ? 'check' : 'w'}}</button>
+    </template>
   </div>
 </template>
 
