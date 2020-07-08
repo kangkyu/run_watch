@@ -6,17 +6,32 @@
     </template>
     <template v-else>
       {{'Ep ' + task.episode}}
-      <button class="buttons">{{task.completed ? 'check' : 'w'}}</button>
+      <button class="buttons" v-on:click="complete(task.id)">{{completed ? 'w' : 'check'}}</button>
     </template>
   </div>
 </template>
 
 <script>
+import api from "@/api";
+
 export default {
   props: {
     task: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      completed: this.task.completed
+    };
+  },
+  methods: {
+    complete: function(id) {
+      console.log(id)
+      api.completeTask(id, {button: !this.completed}).then(response => {
+        this.completed = !this.completed
+      });
     }
   }
 }

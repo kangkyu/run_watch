@@ -15,4 +15,7 @@ export default {
   // createUser(username, password) {
   //   return axios.post("/users", { username, password });
   // }
+  completeTask(id, options) {
+    return axios.put(`/api/tasks/${id}/complete?button=${options.button}`);
+  }
 };

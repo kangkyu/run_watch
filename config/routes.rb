@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :api, defaults: {format: :json} do
-    resources :tasks
+    resources :tasks, only: :index do
+      put 'complete', on: :member
+    end
   end
   # Example resource route with options:
   #   resources :products do
