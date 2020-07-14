@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'tasks#index'
+  get 'hello', to: 'hello#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -25,6 +26,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
+  namespace :api, defaults: {format: :json} do
+    resources :tasks, only: :index do
+      put 'toggle', on: :member
+    end
+  end
   # Example resource route with options:
   #   resources :products do
   #     member do
