@@ -6,7 +6,9 @@
     </template>
     <template v-else>
       {{'Ep ' + task.episode}}
-      <button class="buttons" v-on:click="complete(task.id)">{{completed ? 'w' : 'check'}}</button>
+      <template v-if="task.completed !== undefined">
+        <button class="buttons" v-on:click="toggle(task.id)">{{completed ? 'w' : 'check'}}</button>
+      </template>
     </template>
   </div>
 </template>
@@ -27,9 +29,8 @@ export default {
     };
   },
   methods: {
-    complete: function(id) {
-      console.log(id)
-      api.completeTask(id, {button: !this.completed}).then(response => {
+    toggle: function(id) {
+      api.toggleTaskStatus(id).then(response => {
         this.completed = !this.completed
       });
     }

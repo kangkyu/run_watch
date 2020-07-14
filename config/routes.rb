@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :tasks, only: :index do
-      put 'complete', on: :member
+      put 'toggle', on: :member
     end
   end
   # Example resource route with options:

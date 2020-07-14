@@ -11,11 +11,10 @@ class API::TasksController < API::BaseController
     render json: tasks_print
   end
 
-  # PUT /api/tasks/:id/complete?button=true
-  def complete
+  # PUT /api/tasks/:id/toggle
+  def toggle
     status = current_user.statuses.find_by(task_id: params[:id])
-    status.completed = params[:button]
-    status.save
+    status.toggle!
     head :no_content
   end
 end
