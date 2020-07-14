@@ -6,10 +6,7 @@ class TasksController < ApplicationController
   end
 
   def uncompleted
-    task_ids = []
-    current_user.statuses.where(completed: false).each do |status|
-      task_ids << status.task_id
-    end
+    task_ids = current_user.statuses.where(completed: false).pluck(:task_id)
     @tasks = Task.where(id: task_ids).order('date').page(params[:page]).per_page(12)
   end
 

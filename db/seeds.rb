@@ -43,4 +43,7 @@ date_cancel("2014-04-20")
 date_cancel("2014-04-27") # 2014-04-20 2014-04-27 cancel
 date_casts(194..203, "2014-05-04")
 
-
+user = User.create!(username: 'jimmy', password: '1111')
+Task.find_each do |task|
+  Status.create!(user_id: user.id, task_id: task.id, completed: false) if task.title != 'cancel'
+end
