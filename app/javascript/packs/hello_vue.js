@@ -5,7 +5,7 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue/dist/vue.esm'
+import Vue from 'vue'
 
 import moment from 'moment'
 Vue.filter('date', function(value) {
@@ -15,13 +15,14 @@ Vue.filter('date', function(value) {
 })
 
 import App from '../src/app.vue'
+import router from "../src/router";
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
+    router: router,
     render: h => h(App)
   }).$mount('#hello')
 })
-
 
 // The above code uses Vue without the compiler, which means you cannot
 // use Vue to target elements in your existing html templates. You would
