@@ -9,8 +9,10 @@ import axios from "axios";
 // axios.defaults.withCredentials = true;
 
 export default {
-  getTasks() {
-    return axios.get("/api/tasks");
+  getTasks(params = {}) {
+    // console.log(params);
+    const urlParams = new URLSearchParams(params).toString();
+    return axios.get(`/api/tasks?${urlParams}`);
   },
   // createUser(username, password) {
   //   return axios.post("/users", { username, password });
