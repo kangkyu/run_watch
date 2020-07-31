@@ -7,10 +7,21 @@
 
 import Vue from 'vue'
 
-import moment from 'moment'
+function formatDate(date) {
+  var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
 Vue.filter('date', function(value) {
   if (value) {
-    return moment(String(value)).format('YYYY-MM-DD')
+    return formatDate(value)
   }
 })
 
