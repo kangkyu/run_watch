@@ -20,8 +20,7 @@ class TasksController < ApplicationController
       User.all.each_with_index do |user, i|
         Status.create(task_id: @task.id, user_id: user.id, completed: false)
       end
-      flash[:notice] = "The task was created."
-      redirect_to tasks_path
+      redirect_to tasks_path, notice: "The task was created."
     else
       render 'new', notice: 'please try again different'
     end
