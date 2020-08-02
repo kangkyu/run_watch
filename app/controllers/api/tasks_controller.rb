@@ -22,6 +22,6 @@ class API::TasksController < API::BaseController
   def toggle
     status = current_user.statuses.find_by(task_id: params[:id])
     status.toggle!
-    head :no_content
+    render json: status
   end
 end

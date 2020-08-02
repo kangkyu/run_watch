@@ -26,13 +26,30 @@ export default {
     };
   },
   created() {
-    this.isLoading = true;
-    let options = {};
-    if (this.$route.path === '/tasks-no-complete') options.filter = 'no-complete';
-    api.getTasks(options).then(response => {
-      this.tasks = response.data;
-      this.isLoading = false;
-    });
+    if (this.$route.path === '/tasks-no-complete') {
+      this.loadTasksNoComplete();
+    } else {
+      this.loadTasksAll();
+    }
+  },
+  methods: {
+    loadTasksAll: function() {
+      this.isLoading = true;
+      let options = {};
+      api.getTasks(options).then(response => {
+        this.tasks = response.data;
+        this.isLoading = false;
+      });
+    },
+    loadTasksNoComplete: function() {
+      this.isLoading = true;
+      let options = {};
+      options.filter = 'no-complete';
+      api.getTasks(options).then(response => {
+        this.tasks = response.data;
+        this.isLoading = false;
+      });
+    }
   }
 };
 </script>

@@ -31,7 +31,10 @@ export default {
   methods: {
     toggle: function(id) {
       api.toggleTaskStatus(id).then(response => {
-        this.completed = !this.completed
+        this.completed = response.data.completed;
+        if (this.$route.path === '/tasks-no-complete' && this.completed === true) {
+          this.$parent.loadTasksNoComplete();
+        }
       });
     }
   }
