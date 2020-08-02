@@ -2,31 +2,28 @@ class API::TasksController < API::BaseController
 
   # GET /api/tasks?page=2&filter=no-complete
   def index
-    @tasks = Task.order('date')
-    tasks_print = if current_user.present?
-      filter_tasks if params[:filter] == 'no-complete'
-      paginate_tasks
-      TaskBlueprint.render @tasks, view: :with_login, current_user_id: current_user.id
-    else
-      paginate_tasks
-      TaskBlueprint.render @tasks, view: :public
-    end
+    load_tasks
+    filter_tasks
+    paginate_tasks
     render json: tasks_print
   end
 
   # PUT /api/tasks/:id/toggle
   def toggle
     require_login do
-      status = status_scope.find_by(task_id: params[:id])
-      status.toggle!
-      render json: status
+      load_task
+      render json: toggled_status
     end
   end
 
   private
 
-  def status_scope
-    Status.where(user_id: current_user.id)
+  def load_task
+    @task = Task.find(params[:id])
+  end
+
+  def load_tasks
+    @tasks = Task.order('date')
   end
 
   def paginate_tasks
@@ -34,7 +31,20 @@ class API::TasksController < API::BaseController
   end
 
   def filter_tasks
-    incomplete_task_ids = status_scope.where(completed: false).pluck(:task_id)
-    @tasks = @tasks.where(id: incomplete_task_ids)
+    if current_user.present? && params[:filter] == 'no-complete'
+      @tasks = @tasks.no_complete(current_user.id)
+    end
+  end
+
+  def tasks_print
+    if current_user.present?
+      TaskBlueprint.render @tasks, view: :with_login, current_user_id: current_user.id
+    else
+      TaskBlueprint.render @tasks, view: :public
+    end
+  end
+
+  def toggled_status
+    @task.status_toggled_for(current_user.id)
   end
 end
