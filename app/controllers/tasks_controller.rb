@@ -17,9 +17,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      User.all.each_with_index do |user, i|
-        Status.create(task_id: @task.id, user_id: user.id, completed: false)
-      end
       redirect_to tasks_path, notice: "The task was created."
     else
       render 'new', notice: 'please try again different'
