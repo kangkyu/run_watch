@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :tasks, only: :index do
       put 'toggle', on: :member
     end
+    resource :session, only: [:create]
   end
   # Example resource route with options:
   #   resources :products do

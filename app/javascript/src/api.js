@@ -10,13 +10,15 @@ import axios from "axios";
 
 export default {
   getTasks(params = {}) {
-    // console.log(params);
     const urlParams = new URLSearchParams(params).toString();
     return axios.get(`/api/tasks?${urlParams}`);
   },
   // createUser(username, password) {
   //   return axios.post("/users", { username, password });
-  // }
+  // },
+  createSession(username, password) {
+    return axios.post("/api/session", { username, password });
+  },
   toggleTaskStatus(id) {
     return axios.put(`/api/tasks/${id}/toggle`);
   }

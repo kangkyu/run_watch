@@ -5,6 +5,8 @@
         <router-link to="/tasks-all">All</router-link>
         |
         <router-link to="/tasks-no-complete">Uncompleted</router-link>
+        |
+        <router-link to="/sign-in">Login</router-link>
       </div>
       <router-view :key="$route.path"></router-view>
     </div>
