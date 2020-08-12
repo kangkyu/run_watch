@@ -9,7 +9,7 @@ class TaskBlueprint < Blueprinter::Base
     include_view :public
     field :completed do |object, options|
       unless object.title == "cancel"
-        Status.find_by(task: object, user_id: options[:current_user_id]).completed
+        object.completed_by?(options[:current_user_id])
       end
     end
   end
