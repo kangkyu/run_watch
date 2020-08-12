@@ -8,7 +8,7 @@ class API::BaseController < ActionController::API
     if current_user.present?
       yield
     else
-      render json: {error: "You must be logged in to access this page."}, status: :forbidden
+      render json: {error: "You must be logged in to access this page"}, status: :forbidden
     end
   end
 end
