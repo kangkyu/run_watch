@@ -4,7 +4,7 @@ ruby '2.5.7'
 # Bundle edge Rails instead: gem 'rails', git: 'https://github.com/rails/rails.git'
 gem 'rails', '~> 5.2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 # If you are running Rails 5.x, specify a corresponding 5.x release in the Gemfile. For example, if you are using Rails 5.2 you will specify:
 # gem "minitest-rails", "~> 5.2.0"
